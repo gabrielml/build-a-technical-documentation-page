@@ -9,6 +9,236 @@
 </head>
 
 <body>
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <p>Kotlin is a general purpose, open source, statically typed “pragmatic” programming language for the JVM and Android that combines object-oriented and functional programming features. It is focused on interoperability, safety, clarity, and
+                tooling support. Versions of Kotlin for JavaScript (ECMAScript 5.1) and native code (using LLVM) are in the works.</p>
+
+            <p>Kotlin originated at JetBrains, the company behind IntelliJ IDEA, in 2010, and has been open source since 2012. The Kotlin team currently has more than 20 full-time members from JetBrains, and the Kotlin project on GitHub has about 100 contributors.
+                JetBrains uses Kotlin in many of its products including its flagship IntelliJ IDEA.</p>
+        </section>
+        <section class="main-section" id="What_you_should_already_know">
+            <header>What you should already know</header>
+            <p>This guide assumes you have the following basic background:</p>
+            <ul>
+                <li>A general understanding of the Internet and the World Wide Web (WWW).</li>
+                <li>Good working knowledge of HyperText Markup Language (HTML).</li>
+                <li>Some programming experience. If you are new to programming, try one of the tutorials linked on the main page about Kotlin.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Kotlin_and_Javascript">
+            <header>Kotlin and JavaScript</header>
+            <p>Kotlin provides the ability to target JavaScript. It does so by transpiling Kotlin to JavaScript. The current implementation targets ECMAScript 5.1 but there are plans to eventually target ECMAScript 2015 as well.</p>
+            <p>When you choose the JavaScript target, any Kotlin code that is part of the project as well as the standard library that ships with Kotlin is transpiled to JavaScript. However, this excludes the JDK and any JVM or Java framework or library
+                used. Any file that is not Kotlin will be ignored during compilation.</p>
+            <p>The Kotlin compiler tries to comply with the following goals:</p>
+            <ul>
+                <li>Provide output that is optimal in size</li>
+                <li>Provide output that is readable JavaScript</li>
+                <li>Provide interoperability with existing module systems</li>
+                <li>Provide the same functionality in the standard library whether targeting JavaScript or the JVM (to the largest possible degree).</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Hello_world">
+            <header>Hello world</header>
+            <p>To get started with writing Kotlin, open the Scratchpad and write your first "Hello World" Kotlin code:</p>
+            <code>
+                fun main() { println("Hello World!")}
+            </code>
+        </section>
+        <section class="main-section" id="Variables">
+            <header>Variables</header>
+            <p>Read-only local variables are defined using the keyword val. They can be assigned a value only once.</p>
+            <code>
+                val a: Int = 1 // immediate assignment
+                val b = 2 // `Int` type is inferred
+                val c: Int // Type required when no initializer is provided
+                c = 3 // deferred assignment
+            </code>
+            <p>Variables that can be reassigned use the var keyword:</p>
+            <code>
+                var x = 5 // `Int` type is inferred
+                x +=1
+            </code>
+            <p>Top-level variables:</p>
+            <code>
+                val PI = 3.14
+                var x = 0
+
+                fin incrementX() {
+                    x += 1
+                }
+            </code>
+        </section>
+        <section class="main-section" id="Declaring_variables">
+            <header>Declaring variables</header>
+            <p>Every variable must be <em>declared</em>. Any attempt to use a variable that hasn't been declared yet is a syntax error; thus, you are protected from accidentally assigning to a misspelled variable. The declaration also decides what kind of
+                data you are allowed to store in the variable.</p>
+
+            <p>Local variables are typically declared and initialized at the same time, in which case the type of the variable is <em>inferred</em> to be the type of the expression you initialize it with:</p>
+
+            <code>
+                var number = 42
+                var message = "Hello"
+            </code>
+
+            <p>We now have a local variable <code>number</code> whose value is 42 and whose type is <code>Int</code> (because that's the type of the literal 42), and another local variable message whose value is "Hello" and whose type is String. Subsequent
+                usages of the variable must use only the name, not var:</p>
+
+            <code>
+                number = 10
+                number += 7
+                println(number)
+                println(message + " there")
+            </code>
+
+            <p>However, you cannot change the type of a variable: number can only ever refer to Int values, and message can only ever refer to String values, so both number = "Test" and message = 3 are illegal and will produce syntax errors.</p>
+        </section>
+        <section class="main-section" id="Variable_scope">
+            <header>Variable scope</header>
+            <p>A variable only exists inside the scope (curly-brace-enclosed block of code; more on that later) in which it has been declared - so a variable that's declared inside a loop only exists in that loop; you can't check its final value after the
+                loop. Variables can be redeclared inside nested scopes - so if there's a parameter x to a function and you create a loop and declare an x inside that loop, the x inside the loop is a different variable than the parameter x.</p>
+
+            <p>Variable names should use lowerCamelCase instead of snake_case.</p>
+
+            <p>In general, identifiers may consist of letters, digits, and underscores, and may not begin with a digit. However, if you are writing code that e.g. autogenerates JSON based on identifiers and you want the JSON key to be a string that does
+                not conform to these rules or that collides with a keyword, you can enclose it in backticks: `I can't believe this is not an error!` is a valid identifier.</p>
+        </section>
+        <section class="main-section" id="Global_variables">
+            <header>Global variables</header>
+            <p>In Kotlin, A global variable is a variable that is declared at the top of the program and outside all functions similar to C and C++. A local variable can only be used in the particular block where it is declared. A global variable can be
+                used in all functions.</p>
+
+            <code>
+                // Global variables / Top-level Variables Kotlin example program
+                // Variable Kotlin Programs, Basic Kotlin Programs
+
+                // Declared Global Variable `Int` type is inferred
+                var x = 100
+
+                fun fn() {
+                    x = x + 100
+                }
+
+                fun main(args: Array<String>) {
+                    println("X Value : $x")
+
+                    fn()
+
+                    println("X Value : $x")
+                }
+            </code>
+
+            <p>Sample Output</p>
+
+            <code>
+                X value : 100
+                X value : 200
+            </code>
+
+        </section>
+        <section class="main-section" id="Constants">
+            <header>Constants</header>
+            <p>If you have a value that is truly constant, and the value is a string or a primitive type (see below) that is known at compile-time, you can declare an actual constant instead. You can only do this at the top level of a file or inside an object
+                declaration (but not inside a class declaration):</p>
+
+            <code>
+                const val x = 2
+            </code>
+        </section>
+
+        <section class="main-section" id="Data_types">
+            <header>Data types</header>
+            <p>In Kotlin, everything is an object in the sense that we can call member functions and properties on any variable. Some of the types can have a special internal representation - for example, numbers, characters and booleans can be represented
+                as primitive values at runtime - but to the user they look like ordinary classes. In this section we describe the basic types used in Kotlin:</p>
+            <ul>
+                <li><a href="https://kotlinlang.org/docs/reference/basic-types.html#numbers">Numbers</a></li>
+                <li><a href="https://kotlinlang.org/docs/reference/basic-types.html#characters">Characters</a></li>
+                <li><a href="https://kotlinlang.org/docs/reference/basic-types.html#booleans">Booleans</a></li>
+                <li><a href="https://kotlinlang.org/docs/reference/basic-types.html#arrays">Arrays</a></li>
+                <li><a href="https://kotlinlang.org/docs/reference/basic-types.html#strings">Strings</a></li>
+            </ul>
+        </section>
+        <section class="main-section" id="if...else_statement">
+            <header>if...else statement</header>
+            <p>In Kotlin, if is an expression, i.e. it returns a value. Therefore there is no ternary operator (condition ? then : else), because ordinary if works fine in this role.</p>
+
+            <code>
+                // Traditional usage
+                var max = a
+                if (a < b) max = b
+
+                // With else
+                var max: Int
+                if (a > b) {
+                    max = a
+                } else {
+                    max = b
+                }
+
+                // As expresion
+                val max = if (a > b) a else b
+            </code>
+
+            <p>if branches can be blocks, and the last expression is the value of a block:</p>
+
+            <code>
+                val max = if (a > b) {
+                    print("Choose a")
+                    a
+                } else {
+                    print("Choose b")
+                    b
+                }
+            </code>
+
+            <p>If you're using if as an expression rather than a statement (for example, returning its value or assigning it to a variable), the expression is required to have an else branch.</p>
+
+            <p>See the <a href="https://kotlinlang.org/docs/reference/grammar.html#ifExpression">grammar for if</a></p>
+        </section>
+
+        <section class="main-section" id="While_statement">
+            <header>while statement</header>
+            <p>while and do..while work as usual</p>
+
+            <code>
+                // While Loop
+                while (x > 0) {
+                    x--
+                }
+                // Do while Loop
+                do {
+                    val y = retrieveData()
+                } while (y != null) // y is visible here!
+            </code>
+
+            <p>See the <a href="https://kotlinlang.org/docs/reference/grammar.html#whileStatement">grammar for while</a></p>
+        </section>
+
+        <section class="main-section" id="Function_declarations">
+            <header>Function declarations</header>
+            <p>Functions in Kotlin are declared using the fun keyword:</p>
+
+            <code>
+                fun double(x: Int): Int {
+                    return 2 * x
+                }
+            </code>
+
+            <p>See the <a href="https://kotlinlang.org/docs/reference/functions.html">Functions Reference</a></p>
+        </section>
+
+        <section class="main-section" id="Reference">
+            <header>Reference</header>
+            <p>All the documentation in this page is taken from:</p>
+            <ul>
+                <li><a href="https://kotlinlang.org/docs/reference/">kotlinlang</a></li>
+                <li><a href="https://www.infoworld.com/article/3224868/what-is-kotlin-the-java-alternative-explained.html">What is Kotlin? The Java alternative explained</a></li>
+                <li><a href="https://www.kotlin.thiyagaraaj.com/kotlin-basics/basic-programs/declare-variables-in-kotlin">Delcare Variables In Kotlin</a></li>
+            </ul>
+        </section>
+    </main>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 
