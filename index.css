@@ -32,7 +32,14 @@ header {
     margin: 10px;
     text-align: center;
     font-size: 1.8em;
-    font-weight: thin;
+    font-weight: lighter;
+}
+
+h2 {
+    color: black;
+    margin: 10px 10px 10px 0;
+    font-size: 1.8em;
+    font-weight: lighter;
 }
 
 #main-doc header {

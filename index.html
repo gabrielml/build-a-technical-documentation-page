@@ -56,10 +56,11 @@
                 <a href="#Reference" class="nav-link">Reference</a>
             </li>
         </ul>
+
     </nav>
     <main id="main-doc">
         <section class="main-section" id="Introduction">
-            <header>Introduction</header>
+            <h2>Introduction</h2>
             <p>Kotlin is a general purpose, open source, statically typed “pragmatic” programming language for the JVM and Android that combines object-oriented and functional programming features. It is focused on interoperability, safety, clarity, and
                 tooling support. Versions of Kotlin for JavaScript (ECMAScript 5.1) and native code (using LLVM) are in the works.</p>
 
@@ -67,7 +68,7 @@
                 JetBrains uses Kotlin in many of its products including its flagship IntelliJ IDEA.</p>
         </section>
         <section class="main-section" id="What_you_should_already_know">
-            <header>What you should already know</header>
+            <h2>What you should already know</h2>
             <p>This guide assumes you have the following basic background:</p>
             <ul>
                 <li>A general understanding of the Internet and the World Wide Web (WWW).</li>
@@ -76,7 +77,7 @@
             </ul>
         </section>
         <section class="main-section" id="Kotlin_and_Javascript">
-            <header>Kotlin and JavaScript</header>
+            <h2>Kotlin and JavaScript</h2>
             <p>Kotlin provides the ability to target JavaScript. It does so by transpiling Kotlin to JavaScript. The current implementation targets ECMAScript 5.1 but there are plans to eventually target ECMAScript 2015 as well.</p>
             <p>When you choose the JavaScript target, any Kotlin code that is part of the project as well as the standard library that ships with Kotlin is transpiled to JavaScript. However, this excludes the JDK and any JVM or Java framework or library
                 used. Any file that is not Kotlin will be ignored during compilation.</p>
@@ -89,14 +90,14 @@
             </ul>
         </section>
         <section class="main-section" id="Hello_world">
-            <header>Hello world</header>
+            <h2>Hello world</h2>
             <p>To get started with writing Kotlin, open the Scratchpad and write your first "Hello World" Kotlin code:</p>
             <code>
                 fun main() { println("Hello World!")}
             </code>
         </section>
         <section class="main-section" id="Variables">
-            <header>Variables</header>
+            <h2>Variables</h2>
             <p>Read-only local variables are defined using the keyword val. They can be assigned a value only once.</p>
             <code>
                 val a: Int = 1 // immediate assignment
@@ -120,7 +121,7 @@
             </code>
         </section>
         <section class="main-section" id="Declaring_variables">
-            <header>Declaring variables</header>
+            <h2>Declaring variables</h2>
             <p>Every variable must be <em>declared</em>. Any attempt to use a variable that hasn't been declared yet is a syntax error; thus, you are protected from accidentally assigning to a misspelled variable. The declaration also decides what kind of
                 data you are allowed to store in the variable.</p>
 
@@ -144,7 +145,7 @@
             <p>However, you cannot change the type of a variable: number can only ever refer to Int values, and message can only ever refer to String values, so both number = "Test" and message = 3 are illegal and will produce syntax errors.</p>
         </section>
         <section class="main-section" id="Variable_scope">
-            <header>Variable scope</header>
+            <h2>Variable scope</h2>
             <p>A variable only exists inside the scope (curly-brace-enclosed block of code; more on that later) in which it has been declared - so a variable that's declared inside a loop only exists in that loop; you can't check its final value after the
                 loop. Variables can be redeclared inside nested scopes - so if there's a parameter x to a function and you create a loop and declare an x inside that loop, the x inside the loop is a different variable than the parameter x.</p>
 
@@ -154,7 +155,7 @@
                 not conform to these rules or that collides with a keyword, you can enclose it in backticks: `I can't believe this is not an error!` is a valid identifier.</p>
         </section>
         <section class="main-section" id="Global_variables">
-            <header>Global variables</header>
+            <h2>Global variables</h2>
             <p>In Kotlin, A global variable is a variable that is declared at the top of the program and outside all functions similar to C and C++. A local variable can only be used in the particular block where it is declared. A global variable can be
                 used in all functions.</p>
 
@@ -169,7 +170,7 @@
                     x = x + 100
                 }
 
-                fun main(args: Array<String>) {
+                fun main(args: Array &lt;String&gt;) {
                     println("X Value : $x")
 
                     fn()
@@ -187,7 +188,7 @@
 
         </section>
         <section class="main-section" id="Constants">
-            <header>Constants</header>
+            <h2>Constants</h2>
             <p>If you have a value that is truly constant, and the value is a string or a primitive type (see below) that is known at compile-time, you can declare an actual constant instead. You can only do this at the top level of a file or inside an object
                 declaration (but not inside a class declaration):</p>
 
@@ -197,7 +198,7 @@
         </section>
 
         <section class="main-section" id="Data_types">
-            <header>Data types</header>
+            <h2>Data types</h2>
             <p>In Kotlin, everything is an object in the sense that we can call member functions and properties on any variable. Some of the types can have a special internal representation - for example, numbers, characters and booleans can be represented
                 as primitive values at runtime - but to the user they look like ordinary classes. In this section we describe the basic types used in Kotlin:</p>
             <ul>
@@ -209,30 +210,30 @@
             </ul>
         </section>
         <section class="main-section" id="if...else_statement">
-            <header>if...else statement</header>
+            <h2>if...else statement</h2>
             <p>In Kotlin, if is an expression, i.e. it returns a value. Therefore there is no ternary operator (condition ? then : else), because ordinary if works fine in this role.</p>
 
             <code>
                 // Traditional usage
                 var max = a
-                if (a < b) max = b
+                if (a &lt; b) max = b
 
                 // With else
                 var max: Int
-                if (a > b) {
+                if (a &gt; b) {
                     max = a
                 } else {
                     max = b
                 }
 
                 // As expresion
-                val max = if (a > b) a else b
+                val max = if (a &gt; b) a else b
             </code>
 
             <p>if branches can be blocks, and the last expression is the value of a block:</p>
 
             <code>
-                val max = if (a > b) {
+                val max = if (a &gt; b) {
                     print("Choose a")
                     a
                 } else {
@@ -247,12 +248,12 @@
         </section>
 
         <section class="main-section" id="While_statement">
-            <header>While statement</header>
+            <h2>While statement</h2>
             <p>While and do..while work as usual</p>
 
             <code>
                 // While Loop
-                while (x > 0) {
+                while (x &gt; 0) {
                     x--
                 }
                 // Do while Loop
@@ -265,7 +266,7 @@
         </section>
 
         <section class="main-section" id="Function_declarations">
-            <header>Function declarations</header>
+            <h2>Function declarations</h2>
             <p>Functions in Kotlin are declared using the fun keyword:</p>
 
             <code>
@@ -278,7 +279,7 @@
         </section>
 
         <section class="main-section" id="Reference">
-            <header>Reference</header>
+            <h2>Reference</h2>
             <p>All the documentation in this page is taken from:</p>
             <ul>
                 <li><a href="https://kotlinlang.org/docs/reference/">kotlinlang</a></li>
@@ -286,8 +287,16 @@
                 <li><a href="https://www.kotlin.thiyagaraaj.com/kotlin-basics/basic-programs/declare-variables-in-kotlin">Delcare Variables In Kotlin</a></li>
             </ul>
         </section>
+        <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" />
+            </a>
+        </p>
     </main>
+
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
 </body>
+
 
 </html>
