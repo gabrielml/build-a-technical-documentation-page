@@ -60,7 +60,7 @@
     </nav>
     <main id="main-doc">
         <section class="main-section" id="Introduction">
-            <h2>Introduction</h2>
+            <header>Introduction</header>
             <p>Kotlin is a general purpose, open source, statically typed “pragmatic” programming language for the JVM and Android that combines object-oriented and functional programming features. It is focused on interoperability, safety, clarity, and
                 tooling support. Versions of Kotlin for JavaScript (ECMAScript 5.1) and native code (using LLVM) are in the works.</p>
 
@@ -68,7 +68,7 @@
                 JetBrains uses Kotlin in many of its products including its flagship IntelliJ IDEA.</p>
         </section>
         <section class="main-section" id="What_you_should_already_know">
-            <h2>What you should already know</h2>
+            <header>What you should already know</header>
             <p>This guide assumes you have the following basic background:</p>
             <ul>
                 <li>A general understanding of the Internet and the World Wide Web (WWW).</li>
@@ -77,7 +77,7 @@
             </ul>
         </section>
         <section class="main-section" id="Kotlin_and_Javascript">
-            <h2>Kotlin and JavaScript</h2>
+            <header>Kotlin and JavaScript</header>
             <p>Kotlin provides the ability to target JavaScript. It does so by transpiling Kotlin to JavaScript. The current implementation targets ECMAScript 5.1 but there are plans to eventually target ECMAScript 2015 as well.</p>
             <p>When you choose the JavaScript target, any Kotlin code that is part of the project as well as the standard library that ships with Kotlin is transpiled to JavaScript. However, this excludes the JDK and any JVM or Java framework or library
                 used. Any file that is not Kotlin will be ignored during compilation.</p>
@@ -90,14 +90,15 @@
             </ul>
         </section>
         <section class="main-section" id="Hello_world">
-            <h2>Hello world</h2>
-            <p>To get started with writing Kotlin, open the Scratchpad and write your first "Hello World" Kotlin code:</p>
+            <header>Hello world</header>
+            <p>To get started with writing Kotlin, open the Scratchpad and write your first "Hello World" Kotlin code:
+            </p>
             <code>
                 fun main() { println("Hello World!")}
             </code>
         </section>
         <section class="main-section" id="Variables">
-            <h2>Variables</h2>
+            <header>Variables</header>
             <p>Read-only local variables are defined using the keyword val. They can be assigned a value only once.</p>
             <code>
                 val a: Int = 1 // immediate assignment
@@ -116,12 +117,12 @@
                 var x = 0
 
                 fin incrementX() {
-                    x += 1
+                x += 1
                 }
             </code>
         </section>
         <section class="main-section" id="Declaring_variables">
-            <h2>Declaring variables</h2>
+            <header>Declaring variables</header>
             <p>Every variable must be <em>declared</em>. Any attempt to use a variable that hasn't been declared yet is a syntax error; thus, you are protected from accidentally assigning to a misspelled variable. The declaration also decides what kind of
                 data you are allowed to store in the variable.</p>
 
@@ -145,7 +146,7 @@
             <p>However, you cannot change the type of a variable: number can only ever refer to Int values, and message can only ever refer to String values, so both number = "Test" and message = 3 are illegal and will produce syntax errors.</p>
         </section>
         <section class="main-section" id="Variable_scope">
-            <h2>Variable scope</h2>
+            <header>Variable scope</header>
             <p>A variable only exists inside the scope (curly-brace-enclosed block of code; more on that later) in which it has been declared - so a variable that's declared inside a loop only exists in that loop; you can't check its final value after the
                 loop. Variables can be redeclared inside nested scopes - so if there's a parameter x to a function and you create a loop and declare an x inside that loop, the x inside the loop is a different variable than the parameter x.</p>
 
@@ -155,7 +156,7 @@
                 not conform to these rules or that collides with a keyword, you can enclose it in backticks: `I can't believe this is not an error!` is a valid identifier.</p>
         </section>
         <section class="main-section" id="Global_variables">
-            <h2>Global variables</h2>
+            <header>Global variables</header>
             <p>In Kotlin, A global variable is a variable that is declared at the top of the program and outside all functions similar to C and C++. A local variable can only be used in the particular block where it is declared. A global variable can be
                 used in all functions.</p>
 
@@ -167,15 +168,15 @@
                 var x = 100
 
                 fun fn() {
-                    x = x + 100
+                x = x + 100
                 }
 
                 fun main(args: Array &lt;String&gt;) {
-                    println("X Value : $x")
+                println("X Value : $x")
 
-                    fn()
+                fn()
 
-                    println("X Value : $x")
+                println("X Value : $x")
                 }
             </code>
 
@@ -188,7 +189,7 @@
 
         </section>
         <section class="main-section" id="Constants">
-            <h2>Constants</h2>
+            <header>Constants</header>
             <p>If you have a value that is truly constant, and the value is a string or a primitive type (see below) that is known at compile-time, you can declare an actual constant instead. You can only do this at the top level of a file or inside an object
                 declaration (but not inside a class declaration):</p>
 
@@ -198,7 +199,7 @@
         </section>
 
         <section class="main-section" id="Data_types">
-            <h2>Data types</h2>
+            <header>Data types</header>
             <p>In Kotlin, everything is an object in the sense that we can call member functions and properties on any variable. Some of the types can have a special internal representation - for example, numbers, characters and booleans can be represented
                 as primitive values at runtime - but to the user they look like ordinary classes. In this section we describe the basic types used in Kotlin:</p>
             <ul>
@@ -210,7 +211,7 @@
             </ul>
         </section>
         <section class="main-section" id="if...else_statement">
-            <h2>if...else statement</h2>
+            <header>if...else statement</header>
             <p>In Kotlin, if is an expression, i.e. it returns a value. Therefore there is no ternary operator (condition ? then : else), because ordinary if works fine in this role.</p>
 
             <code>
@@ -221,9 +222,9 @@
                 // With else
                 var max: Int
                 if (a &gt; b) {
-                    max = a
+                max = a
                 } else {
-                    max = b
+                max = b
                 }
 
                 // As expresion
@@ -234,11 +235,11 @@
 
             <code>
                 val max = if (a &gt; b) {
-                    print("Choose a")
-                    a
+                print("Choose a")
+                a
                 } else {
-                    print("Choose b")
-                    b
+                print("Choose b")
+                b
                 }
             </code>
 
@@ -248,30 +249,31 @@
         </section>
 
         <section class="main-section" id="While_statement">
-            <h2>While statement</h2>
+            <header>While statement</header>
             <p>While and do..while work as usual</p>
 
             <code>
                 // While Loop
                 while (x &gt; 0) {
-                    x--
+                x--
                 }
                 // Do while Loop
                 do {
-                    val y = retrieveData()
+                val y = retrieveData()
                 } while (y != null) // y is visible here!
             </code>
 
-            <p>See the <a href="https://kotlinlang.org/docs/reference/grammar.html#whileStatement">grammar for while</a></p>
+            <p>See the <a href="https://kotlinlang.org/docs/reference/grammar.html#whileStatement">grammar for while</a>
+            </p>
         </section>
 
         <section class="main-section" id="Function_declarations">
-            <h2>Function declarations</h2>
+            <header>Function declarations</header>
             <p>Functions in Kotlin are declared using the fun keyword:</p>
 
             <code>
                 fun double(x: Int): Int {
-                    return 2 * x
+                return 2 * x
                 }
             </code>
 
@@ -279,12 +281,14 @@
         </section>
 
         <section class="main-section" id="Reference">
-            <h2>Reference</h2>
+            <header>Reference</header>
             <p>All the documentation in this page is taken from:</p>
             <ul>
                 <li><a href="https://kotlinlang.org/docs/reference/">kotlinlang</a></li>
-                <li><a href="https://www.infoworld.com/article/3224868/what-is-kotlin-the-java-alternative-explained.html">What is Kotlin? The Java alternative explained</a></li>
-                <li><a href="https://www.kotlin.thiyagaraaj.com/kotlin-basics/basic-programs/declare-variables-in-kotlin">Delcare Variables In Kotlin</a></li>
+                <li><a href="https://www.infoworld.com/article/3224868/what-is-kotlin-the-java-alternative-explained.html">What
+                        is Kotlin? The Java alternative explained</a></li>
+                <li><a href="https://www.kotlin.thiyagaraaj.com/kotlin-basics/basic-programs/declare-variables-in-kotlin">Delcare
+                        Variables In Kotlin</a></li>
             </ul>
         </section>
         <p>
@@ -294,7 +298,8 @@
         </p>
     </main>
 
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js">
+    </script>
 
 </body>
 
